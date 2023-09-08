@@ -1,0 +1,327 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'css/page.css' %}">
+
+    <!-- bootsrap js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <!-- bootsrap 5 style-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- font awersome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <!-- swiper -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+</head>
+
+<body>
+
+    <!-- header section starts -->
+    <section class="header">
+        <a href="home.php" class="logo">FindmeNOW</a>
+
+        <nav class="navbar">
+            <a href="#">Home</a>
+            <a href="{% url 'found_items' %}">Find</a>
+            <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Report</a>
+            <a href="{% url 'signin' %}">logout</a>
+        </nav>
+
+        <div id="menu-btn1" class="fas fa-bars"></div>
+
+    </section>
+    <!-- header section ends -->
+
+    <!-- modal start -->
+
+    <section class="model">
+
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">Report Item</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form method="post" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Item name</label>
+                                <input type="text" class="form-control" id="title" name="title"
+                                    placeholder="Item name">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Name of finder</label>
+                                <input type="text" class="form-control" id="name_of_item_finder" name="name_of_item_finder"
+                                    placeholder="Fullname">
+                            </div>
+                            <div class="mb-3">
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Phone Number</label>
+                                <input type="text" class="form-control" id="phone_number_of_item_finder" name="phone_number_of_item_finder"
+                                    placeholder="Phone Number">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Date found</label>
+                                <input type="date" class="form-control" id="date_found" name="date_found"
+                                    placeholder="Date">
+                            </div>
+                            <div class="mb-3">
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">location found</label>
+                                <input type="text" class="form-control" id="location_found" name="location_found"
+                                    placeholder="location">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Item Image</label>
+                                <input type="file" class="form-control" id="image" name="image"
+                                    placeholder="media">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControlTextarea1" class="form-label">Description</label>
+                                <textarea class="form-control" id="description"  name="description" rows="3"></textarea>
+                            </div>
+                            <input type="text" hidden value="True" name="isFound" id="isFound">
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Send</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- model ends -->
+
+    <!-- home section starts here -->
+
+    <section class="home">
+
+        <div class="swiper home-slider">
+
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide slide" style="background-color:blanchedalmond ;">
+                    <div class="content">
+                        <span>report, search, find</span>
+                        <h3>nothing is truly lost</h3>
+                        <a href="{% url 'found_items' %}" class="btn1">find now</a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide slide" style="background-color: bisque;">
+                    <div class="content">
+                        <span>report, search, find</span>
+                        <h3>it takes one click</h3>
+                        <a href="#" class="btn1" data-bs-toggle="modal" data-bs-target="#staticBackdrop">report now</a>
+                    </div>
+                </div>
+
+            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+
+    </section>
+
+
+    <!-- home section ends here -->
+
+    <!-- services section start here -->
+
+    <section class="services">
+
+        <h1 class="heading-title"> our services </h1>
+
+        <div class="box-container">
+            <div class="box">
+                <a href="#"><img src="../static/img/tracking-removebg-preview.png" alt="Notice icon"></a>
+                <h3>tracking</h3><br>
+                <h3>(coming soon)</h3>
+            </div>
+
+            <div class="box">
+                <a href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop"><img
+                        src="../static/img/report-removebg-preview.png" alt="Report icon"></a>
+                <h3>reporting</h3>
+            </div>
+
+            <div class="box">
+                <a href="{% url 'found_items' %}"><img src="../static/img/find-removebg-preview.png" alt="find icon"></a>
+                <h3>finding</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- services section ends here -->
+
+    <!-- home about section starts -->
+
+    <section class="home-about">
+
+        <div class="image">
+            <img src="../static/img/community.jpg" alt="community picture">
+        </div>
+
+        <div class="content">
+            <h3>about us</h3>
+            <p>
+                At FindmeNow, we believe in the power of connection and the joy of reuniting people
+                with their lost belongings. Our journey began with a simple idea: to create a platform
+                that makes finding lost items easy, efficient, and stress-free.
+            </p>
+            <a href="#" class="btn1">read more</a>
+        </div>
+
+    </section>
+
+    <!-- home about section ends -->
+
+
+    <!-- footer section starts -->
+    <section class="footer">
+
+        <div class="box-container">
+
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="#"> <i class="fas fa-angle-right"></i> Home</a>
+                <a href="#"> <i class="fas fa-angle-right"></i> Find</a>
+                <a href="#"> <i class="fas fa-angle-right"></i> Report</a>
+                <a href="#"> <i class="fas fa-angle-right"></i> About</a>
+            </div>
+
+            <div class="box">
+                <h3>extra links</h3>
+                <a href="#"> <i class="fas fa-angle-right"></i> ask questions</a>
+                <a href="#"> <i class="fas fa-angle-right"></i> about us</a>
+                <a href="#"> <i class="fas fa-angle-right"></i> privacy policy</a>
+                <a href="#"> <i class="fas fa-angle-right"></i> terms of use</a>
+            </div>
+
+            <div class="box">
+                <h3>contact info</h3>
+                <a href="#"> <i class="fas fa-phone"></i> +233 0546599977</a>
+                <a href="#"> <i class="fas fa-envelope"></i> FindmeNow@gmail.com</a>
+                <a href="#"> <i class="fas fa-map"></i> Ho, Ghana</a>
+            </div>
+
+            <div class="box">
+                <h3>follow us</h3>
+                <a href="#"> <i class="fas fa-meta"></i> FINDmeNOW</a>
+                <a href="#"> <i class="fas fa-x"></i> FindmeNOW</a>
+            </div>
+        </div>
+
+        <div class="credit">created by <span>mr. kassim abdulai jnr</span> | all rights reserved! </div>
+
+    </section>
+
+    <!-- footer section ends -->
+
+    <!-- swiper js -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <!-- js -->
+    <script>
+
+        let menu = document.querySelector('#menu-btn1');
+        let navbar = document.querySelector('.header .navbar');
+
+        menu.onclick = () => {
+            menu.classList.toggle('fa-times');
+            navbar.classList.toggle('active');
+        };
+
+        window.onscroll = () => {
+            menu.classList.remove('fa-times');
+            navbar.classList.remove('active');
+        }
+
+        var swiper = new Swiper(".home-slider", {
+            loop: true,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+        });
+
+
+    </script>
+
+<!-- Include jQuery library -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $("form").submit(function (event) {
+            event.preventDefault();  // Prevent the default form submission
+
+            // Extract input data from the form
+            var title = $("#title").val();
+            var nameOfFinder = $("#name_of_item_finder").val();
+            var phoneNumber = $("#phone_number_of_item_finder").val();
+            var dateLost = $("#date_found").val();
+            var locationFound = $("#location_found").val();
+            var description = $("#description").val();
+            var isFound = $("#isFound").val();
+
+            // Create a FormData object to send the file
+            var formData = new FormData();
+            formData.append("title", title);
+            formData.append("name_of_item_finder", nameOfFinder);
+            formData.append("phone_number_of_item_finder", phoneNumber);
+            formData.append("date_found", dateLost);
+            formData.append("location_found", locationFound);
+            formData.append("description", description);
+            formData.append("isFound", isFound);
+            formData.append("image", $("#image")[0].files[0]);
+            formData.append("name_of_item_owner", "none");
+            formData.append("location_lost", "none");
+            formData.append("phone_number_of_item_owner", "none");
+            formData.append("date_lost", dateLost);
+
+            // Make the AJAX POST request
+            $.ajax({
+                type: "POST",
+                url: "{% url 'item-create' %}",  // Replace with the actual URL
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (response) {
+                    // Handle success
+                    alert("Item created successfully");
+                    window.location.reload();
+                    // You can perform other actions here, e.g., display a success message
+                },
+                error: function (error) {
+                    // Handle error
+                    alert("Error creating item:", error);
+                    window.location.reload();
+                    // You can display an error message here
+                }
+            });
+        });
+    });
+</script>
+
+
+
+</body>
+
+</html>

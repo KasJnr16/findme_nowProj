@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;700&display=swap');
+
+:root {
+    --footer-color: rgb(195, 122, 212);
+    --main-bg: #8da8e9;
+    --dark-bg: rgba(0, 0, 0, .7);
+    --black: rgb(49, 47, 47);
+    --white: #fffff1;
+    --light-white: rgba(238, 226, 226, 0.6);
+    --blue: #497bde;
+    --deep-blue: #386b9a;
+    --border: .1rem solid var(--white);
+    --box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    --text-shadow: 0. 5rem 3rem rgba(0, 0, 0, .3);
+
+
+}
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+}
+
+/* main */
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+
+}
+
+html::-webkit-scrollbar {
+    width: 1rem;
+
+}
+
+html::-webkit-scrollbar-track {
+    background-color: var(--white);
+}
+
+html::-webkit-scrollbar-thumb {
+    background-color: var(--deep-blue);
+}
+
+section {
+    padding: 5rem 10%;
+}
+
+/* header */
+
+.header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: var(--light-white);
+    display: flex;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    justify-content: space-between;
+
+
+}
+
+.header .logo {
+    font-size: 2.5rem;
+    color: var(--deep-blue);
+
+}
+
+.header .navbar a {
+    font-size: 2rem;
+    margin-left: 2rem;
+    color: var(--black);
+    text-decoration: none;
+}
+
+.header .navbar a:hover {
+    color: var(--deep-blue);
+}
+
+#menu-btn1 {
+    position: relative;
+    display: none;
+    font-size: 2.5rem;
+    cursor: pointer;
+    color: var(--black);
+}
+
+.btn1 {
+    display: inline-block;
+    background: var(--deep-blue);
+    margin-top: 1rem;
+    color: var(--white);
+    font-size: 1.7rem;
+    padding: 1rem 3rem;
+    cursor: pointer;
+}
+
+.btn1:hover {
+    background: var(--blue);
+}
+
+/* search */
+
+.search {
+    margin-bottom: 6rem;
+    padding: 0;
+
+}
+
+/* heading */
+
+.heading{
+    
+    padding: 2rem ;
+
+}
+
+.heading .heading-container .box{
+    background-color: var(--light-white);
+    padding: 1.5rem;
+
+}
+
+.heading .heading-container .box{
+    font-size: 2rem;
+    color: #386b9a;
+}
+
+/* cards */
+
+.display-cards {
+    display: inline-flex;
+    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: 2rem;
+
+}
+
+
+
+
+
+/* footer */
+
+.footer {
+    position: relative;
+    background: url(../img/lost.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+
+}
+
+.footer .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    gap: 3rem;
+}
+
+.footer .box-container .box h3 {
+    color: var(--light-white);
+    font-size: 2.5rem;
+    padding-bottom: 2rem;
+
+}
+
+.footer .box-container .box a {
+    text-decoration: none;
+    color: var(--light-white);
+    font-size: 1.2rem;
+    padding: 1rem;
+    display: block;
+}
+
+.footer .box-container .box a i {
+    color: var(--footer-color);
+    padding-right: 5rem;
+    transition: .2s linear;
+
+}
+
+.footer .box-container .box a:hover i {
+    padding-right: 2rem;
+}
+
+.footer .credit {
+    text-align: center;
+    padding-top: 3rem;
+    margin-top: 3rem;
+    border-top: 0.2rem solid var(--light-white);
+    font-size: 1.5rem;
+    color: var(--white);
+
+}
+
+.footer .credit span {
+    color: var(--footer-color);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* media queries */
+@media (max-width:1200px) {
+
+    section {
+        padding: 3rem 5%;
+    }
+
+
+}
+
+@media(max-width:991px) {
+    html {
+        font-size: 55%;
+    }
+
+    section {
+        padding: 3rem 2rem;
+    }
+}
+
+@media(max-width:768px) {
+
+    #menu-btn1 {
+        display: inline-block;
+        transition: .3s linear;
+
+    }
+
+    #menu-btn1.fa-times {
+        transform: rotate(180deg);
+    }
+
+
+    .header .navbar {
+        position: absolute;
+        top: 99%;
+        left: 0;
+        right: 0;
+        background-color: var(--light-white);
+        border-top: var(--border);
+        padding: 2rem;
+        transition: .7s linear;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+
+    }
+
+    .header .navbar.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+
+    }
+
+    .header .navbar a {
+        display: block;
+        margin: 2rem;
+        text-align: center;
+
+    }
+}
+
+@media(max-width:450px) {
+    html {
+        font-size: 50%;
+    }
+
+    .heading-title {
+        font-size: 3.5rem;
+    }
+}

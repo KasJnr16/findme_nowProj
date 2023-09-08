@@ -1,0 +1,39 @@
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Sign in Form</title>
+        <link rel="stylesheet" href="https://codepen.io/gymratpacks/pen/VKzBEp#0">
+        <link href='https://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'css/login.css'%}">
+        <script src="{% static 'js/login.js'%}"></script>
+    </head>
+    <body>
+      <div class="row">
+    <div class="col-md-12">
+      <form action="{% url 'home' %}" method="post" onsubmit="validate()" name="myform">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <h1> Sign in </h1>
+        
+        <fieldset>
+          
+          <label for="email">Full Name or Email:</label>
+          <input type="email" id="name or mail" name="user_email" required>
+       
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="user_password" required>
+        
+        </fieldset>
+        <fieldset>
+          <a href=""><h4></h4></a>  
+
+        <button type="submit">Sign in</button>
+        
+       </form>
+        </div>
+      </div>
+      
+    </body>
+</html>
